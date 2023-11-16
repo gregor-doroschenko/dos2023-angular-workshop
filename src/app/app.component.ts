@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { FirstComponent } from './first.component';
 import { CustomService } from './custom.service';
 import { Observable } from 'rxjs';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FirstComponent],
+  imports: [CommonModule, RouterOutlet, MatSidenavModule, FirstComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

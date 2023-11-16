@@ -1,11 +1,27 @@
-<h1>{{ title | uppercase }}</h1>
-<p>Heute ist {{ date | date:'dd.MM.yyyy' }}</p>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
+    <!-- Navigation -->
+    <ng-container *ngIf="(users$ | async) as usersList">
+      <ul>
+        <li *ngFor="let user of usersList">{{ user }}</li>
+      </ul>
+    </ng-container>
+  </mat-drawer>
 
-<ng-container *ngIf="(users$ | async) as usersList">
-  <ul>
-    <li *ngFor="let user of usersList">{{ user }}</li>
-  </ul>
-</ng-container>
-<hr>
+  <div class="example-sidenav-content">
 
-<app-first buttonTitle="Toggle Button State" (outputEvent)="readOutputEvent($event)" />
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+    <h1>{{ title | uppercase }}</h1>
+    <p>Heute ist {{ date | date:'dd.MM.yyyy' }}</p>
+
+    <hr>
+
+    <app-first title="Toggle Button State" [size]="30" (outputEvent)="readOutputEvent($event)">
+      <p ngProjectAs="first-content">Neuer Inhalt</p>
+      <button ngProjectAs="first-button">Neuer Button</button>
+    </app-first>
+  </div>
+
+</mat-drawer-container>

@@ -1,16 +1,37 @@
 import { NgFor, NgIf } from "@angular/common";
-import { Component, EventEmitter, Input, Output, inject } from "@angular/core";
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, inject } from "@angular/core";
 import { CustomService } from "./custom.service";
+
+function transformSize(value: number | undefined): string {
+    return `${value}px`;
+}
 
 @Component({
     standalone: true,
-    selector: 'app-first',
+    selector: 'app-first, [appFirst]:not(button)',
     templateUrl: './first.component.html',
     styleUrls: ['./first.component.scss'],
-    imports: [NgIf, NgFor]
+    imports: [NgIf, NgFor],
+    host: {
+        'role': 'select',
+        '[attr.aria-size]': 'size',
+        '(mouseleave)': 'changeButtonState()'
+    }
 })
 export class FirstComponent {
-    @Input() buttonTitle: string = "Button Title";
+    @Input({ required: true, alias: 'title'}) buttonTitle: string = "Button Title";
+    @Input({ transform: transformSize }) size: number = 10;
+
+
+    @Input()
+    get name(): string {
+        return this._internalName;
+    }
+    set name(value: string) {
+        this._internalName = value;
+    }
+    private _internalName!: string;
+
     @Output() outputEvent = new EventEmitter<string>();
     buttonDisabled = true;
 

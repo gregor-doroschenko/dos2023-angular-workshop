@@ -1,4 +1,10 @@
-<h1>First Component</h1>
+<style>
+    h1 {
+        color: blue
+    }
+</style>
+
+<h1>First Component {{ size }}</h1>
 
 <button (click)="changeButtonState()" (mouseover)="readMouseOverEvent($event)">{{ buttonTitle }}</button>
 <button [disabled]="buttonDisabled" [class.btn-red]="buttonDisabled" [class.btn-green]="!buttonDisabled">Unser Button</button>
@@ -28,3 +34,8 @@
         <li>{{ i }} - {{ userItem }}</li>
     }
 </ul>
+
+<hr>
+
+<ng-content select="first-content"></ng-content>
+<ng-content select="first-button"></ng-content>
