@@ -1,1 +1,11 @@
-<app-first />
+<h1>{{ title | uppercase }}</h1>
+<p>Heute ist {{ date | date:'dd.MM.yyyy' }}</p>
+
+<ng-container *ngIf="(users$ | async) as usersList">
+  <ul>
+    <li *ngFor="let user of usersList">{{ user }}</li>
+  </ul>
+</ng-container>
+<hr>
+
+<app-first buttonTitle="Toggle Button State" (outputEvent)="readOutputEvent($event)" />

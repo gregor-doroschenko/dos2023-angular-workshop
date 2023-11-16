@@ -1,1 +1,30 @@
 <h1>First Component</h1>
+
+<button (click)="changeButtonState()" (mouseover)="readMouseOverEvent($event)">{{ buttonTitle }}</button>
+<button [disabled]="buttonDisabled" [class.btn-red]="buttonDisabled" [class.btn-green]="!buttonDisabled">Unser Button</button>
+<hr>
+<button (click)="addUser('Anna')">Add Anna</button>
+
+<div *ngIf="!buttonDisabled">
+    <p>Ich bin jetzt zu sehen.</p>
+</div>
+
+@if (!buttonDisabled) {
+    <p>Ich bin jetzt zu sehen.</p>
+} @else {
+    <p>Nichts da!</p>
+}
+
+<hr>
+
+<ul>
+    <li *ngFor="let userItem of users; let i = index">
+        {{ i }} - {{ userItem }}
+    </li>
+</ul>
+
+<ul>
+    @for (userItem of customService.users; track userItem; let i = $index) {
+        <li>{{ i }} - {{ userItem }}</li>
+    }
+</ul>
