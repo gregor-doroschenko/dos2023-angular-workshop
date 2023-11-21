@@ -1,16 +1,15 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
     <!-- Navigation -->
-    <ng-container *ngIf="(users$ | async) as usersList">
-      <ul>
-        <li *ngFor="let user of usersList">{{ user }}</li>
-      </ul>
-    </ng-container>
+    <app-profile [(email)]="newEmail" />
+
+    <hr>
+    Email: {{ newEmail }}
   </mat-drawer>
 
   <div class="example-sidenav-content">
 
-    <button type="button" mat-button (click)="drawer.toggle()">
+  <!--<button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
     </button>
     <h1>{{ title | uppercase }}</h1>
@@ -21,7 +20,9 @@
     <app-first title="Toggle Button State" [size]="30" (outputEvent)="readOutputEvent($event)">
       <p ngProjectAs="first-content">Neuer Inhalt</p>
       <button ngProjectAs="first-button">Neuer Button</button>
-    </app-first>
+    </app-first>-->
+    <!--<app-starwars-people></app-starwars-people>-->
+    <app-nested-form></app-nested-form>
   </div>
 
 </mat-drawer-container>

@@ -1,0 +1,40 @@
+p {
+    font-family: Lato;
+  }
+  
+  .properties {
+    padding: 5px;
+    border: 1px dashed navy;
+  }
+  
+  .property {
+    padding: 10px;
+    border-bottom: 1px solid #000;
+  }
+  
+  .btn {
+    background: #ccc;
+    border: 1px solid #000;
+    padding: 5px;
+    display: inline-flex;
+  }
+  
+  .btn-del {
+    border-color: red;
+    color: red;
+  }
+  
+  .btn-add {
+    border-color: green;
+    color: green;
+  }
+  
+  .btn-links {
+    padding: 2px;
+    margin-left: 5px;
+  }
+  
+  .link-block {
+    display: inline-flex;
+    margin: 5px 0;
+  }
