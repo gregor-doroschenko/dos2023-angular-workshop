@@ -1,0 +1,7 @@
+<ng-container *ngIf="(swapiResult$ | async) as peopleList">
+    <div *ngIf="peopleList.results">
+        @for (people of peopleList.results; track people.name) {
+            <p>{{ people.name }}</p>
+        }
+    </div>
+</ng-container>

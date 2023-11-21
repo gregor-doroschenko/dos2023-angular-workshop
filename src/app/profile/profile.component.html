@@ -1,0 +1,26 @@
+<form>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. test@example.com" name="email" [(ngModel)]="email" />
+    </mat-form-field>
+</form>
+
+<p>Email: {{ email }}</p>
+
+<hr>
+
+<form [formGroup]="formGroup" (ngSubmit)="saveDate(formGroup.value)">
+    <mat-form-field class="example-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Ex. test@example.com" formControlName="username" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ex. test@example.com" formControlName="email" />
+    </mat-form-field>
+    <button type="submit">Save</button>
+</form>
+
+<pre>
+    {{ formGroup.value | json }}
+</pre>
